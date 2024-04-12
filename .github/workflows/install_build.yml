@@ -36,11 +36,10 @@ jobs:
 
       - name: Gatsby Publish
         uses: enriikke/gatsby-gh-pages-action@v2
-        env:
-          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+
         with:
-          access-token: ${{ secrets.ACCESS_TOKEN }}
-          
+          access-token: ${{ secrets.PAT_TOKEN }}
+          github_token: ${{ secrets.PAT_TOKEN }}
           deploy-branch: gh-pages
           gatsby-args: --prefix-paths
 
