@@ -32,11 +32,21 @@ jobs:
            bash extractMuiVersion.sh 
            
 
-
-      - name: Rebuild the dist/ directory
+      - name: Rebuild the public/ directory
         run: |
           yarn build
+      - name: Compare the expected and actual public/ directories
+        run: |
+          if [ "$(git diff --ignore-space-at-eol public/ | wc -l)" -gt "0" ]; then
+            echo "Detected uncommitted changes after build.  See status below:"
+            git diff
+            exit 1
+          fi
+        id: diff
+
+      # If index.js was different than expected, upload the expected version as an artifact
       - uses: actions/upload-artifact@v4
+        if: ${{ failure() && steps.diff.conclusion == 'failure' }}
         with:
-          name: dist
-          path: dist/
+          name: public
+          path: public/
