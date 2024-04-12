@@ -36,7 +36,6 @@ jobs:
       - name: Rebuild the dist/ directory
         run: |
           yarn build
-          yarn package
       - uses: actions/upload-artifact@v4
         with:
           name: dist
