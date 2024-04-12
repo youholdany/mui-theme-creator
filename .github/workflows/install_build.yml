@@ -39,7 +39,7 @@ jobs:
         env:
           GH_PAT: ${{ secrets.GH_PAT }}
         with:
-          access-token: ${{ secrets.GH_PAT }}
+          access-token: ${{ secrets.ACCESS_TOKEN }}
           
           deploy-branch: gh-pages
           gatsby-args: --prefix-paths
