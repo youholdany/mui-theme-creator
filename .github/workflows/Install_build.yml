@@ -32,7 +32,8 @@ jobs:
            bash extractMuiVersion.sh 
            
       - name: Gatsby Publish
-        uses: enriikke/gatsby-gh-pages-action@v2
+        uses: actions/checkout@v3
+              enriikke/gatsby-gh-pages-action@v2
         with:
           access-token: ${{ secrets.ACCESS_TOKEN }}
           deploy-branch: gh-pages
