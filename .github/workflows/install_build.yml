@@ -9,6 +9,11 @@ on:
   pull_request:
     paths-ignore:
       - '**.md'
+  workflow_call:
+    inputs:
+      access_token:
+        required: true
+        type: string
 
 jobs:
   install_builde:
