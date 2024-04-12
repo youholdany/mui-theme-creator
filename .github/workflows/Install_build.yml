@@ -29,14 +29,13 @@ jobs:
 
       - name: Rebuild the public/ directory
         run: |
-           bash extractMuiVersion.sh 
+           bash extractMuiVersion.sh
+           
       - name: build
         run: yarn build
 
-           
       - name: Gatsby Publish
-        uses: actions/checkout@v3
-              enriikke/gatsby-gh-pages-action@v2
+        uses: enriikke/gatsby-gh-pages-action@v2
         with:
           access-token: ${{ secrets.ACCESS_TOKEN }}
           deploy-branch: gh-pages
