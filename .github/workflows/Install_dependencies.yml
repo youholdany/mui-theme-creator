@@ -11,7 +11,7 @@ on:
       - '**.md'
 
 jobs:
-  check-dist:
+  install-dependence:
     runs-on: ubuntu-latest
 
     steps:
