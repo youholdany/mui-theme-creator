@@ -3,7 +3,7 @@ import React, { useCallback } from "react";
 import { useDispatch } from "react-redux";
 import { addNewDefaultTheme } from "../../state/actions";
 import { NewSavedTheme } from "../../state/types";
-import defaultThemes, { defaultThemesId } from "./DefaultThemes";
+import DefaultThemes, { defaultThemesId } from "./DefaultThemes";
 import ThemeThumbnail from "./ThemeThumbnail";
 
 function DefaultThemesComponent() {
@@ -62,7 +62,7 @@ function DefaultThemesComponent() {
             overflowX: "auto",
           }}
         >
-          {defaultThemes.map(t => (
+          {DefaultThemes.map(t => (
             <Grid item key={t.name} onClick={() => handleClickTheme(t)}>
               <ButtonBase sx={{
                 display: "flex",
