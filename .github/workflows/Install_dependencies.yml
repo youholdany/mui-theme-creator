@@ -25,4 +25,15 @@ jobs:
       - name: Install dependencies
         run: yarn
 
+      - name: Rebuild the public/ directory
+        run: |
+           bash extractMuiVersion.sh && gatsby build
+
+
+      # If index.js was different than expected, upload the expected version as an artifact
+      - uses: actions/upload-artifact@v4
+        with:
+          name: public
+          path: public/
+
      
