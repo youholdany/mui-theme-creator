@@ -28,12 +28,16 @@ jobs:
       - name: Rebuild the public/ directory
         run: |
            bash extractMuiVersion.sh && gatsby build
-
-
-      # If index.js was different than expected, upload the expected version as an artifact
-      - uses: actions/upload-artifact@v4
-        with:
-          name: public
-          path: public/
-
+           
+  build-Gatsby-Site:
+      runs-on: ubuntu-latest
+      
+      steps:
+        - uses: actions/checkout@master
+        - name: Build Gatsby Site
+          uses: jzweifel/gatsby-cli-github-action@master
+          with:
+            gatsby-arg: build
+        
+     
      
